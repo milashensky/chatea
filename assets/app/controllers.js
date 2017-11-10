@@ -1,4 +1,4 @@
-var API_PREFIX = 'http://json.smappi.org/adw0rd/chatea/';
+var API_PREFIX = 'https://json.smappi.org/milash/chatea-with-volumes/';
 
 function MainCtrl ($http) {
     var vm = this;
