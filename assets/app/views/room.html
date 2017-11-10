@@ -5,10 +5,10 @@
     </div>
     <div class="row" style="padding: 20px 0">
         <div class="col-sm-9">
-            <h2>{{ctrl.data.name}}</h2>
+            <h2>{{ctrl.roomname}}</h2>
         </div>
         <div class="col-sm-9" style="max-height: 600px;overflow-y: scroll;">
-            <div ng-repeat="item in ctrl.data.items">
+            <div ng-repeat="item in ctrl.data">
                 <h6>{{item.nickname}}
                     <small>at: {{item.at}}</small>
                 </h6>

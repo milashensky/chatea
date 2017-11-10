@@ -8,7 +8,7 @@ function MainCtrl ($http) {
         });
     }
     vm.add_room = function(){
-        $http.get(API_PREFIX + 'addRoom?args=' + vm.roomname).then(function(response) {
+        $http.get(API_PREFIX + 'addRoom?roomname=' + vm.roomname).then(function(response) {
             if (response.data) {
                 vm.check_rooms()
             }
@@ -21,7 +21,7 @@ function RoomCtrl($http, $interval, $stateParams) {
     var vm = this;
     vm.roomname = $stateParams.name;
     vm.get_data = function(){
-        $http.get(API_PREFIX + 'getRoom?args=' + vm.roomname).then(function (response) {
+        $http.get(API_PREFIX + 'getRoom?roomname=' + vm.roomname).then(function (response) {
             vm.data = response.data;
         });
     };
@@ -30,7 +30,7 @@ function RoomCtrl($http, $interval, $stateParams) {
 
     vm.add_comment = function() {
         if (vm.message && vm.nickname && vm.data){
-            args = 'addItem?args=' + vm.roomname + ',' + vm.nickname + ',' + vm.message
+            args = 'addItem?roomname=' + vm.roomname + '&nickname=' + vm.nickname + '&message=' + vm.message
             $http.get(API_PREFIX + args).then(function(response) {
                 if (response.data) {
                     vm.get_data()
