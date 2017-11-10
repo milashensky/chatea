@@ -11,6 +11,10 @@ function MainCtrl ($http) {
         $http.get(API_PREFIX + 'addRoom?roomname=' + vm.roomname).then(function(response) {
             if (response.data) {
                 vm.check_rooms()
+                vm.error = false;
+            } else {
+                if (response == false || response.errors)
+                vm.error = true;
             }
         });
     }
@@ -26,7 +30,9 @@ function RoomCtrl($http, $interval, $stateParams) {
         });
     };
 
-    $interval(vm.get_data, 10000);
+    $interval(vm.get_data, 15000);
+
+    vm.get_data();
 
     vm.add_comment = function() {
         if (vm.message && vm.nickname && vm.data){
@@ -36,6 +42,10 @@ function RoomCtrl($http, $interval, $stateParams) {
                     vm.get_data()
                     $("#nickname").attr('disabled', true)
                     vm.message = "";
+                    vm.error = false;
+                } else {
+                    if (response == false || response.errors)
+                    vm.error = true;
                 }
             });
         }

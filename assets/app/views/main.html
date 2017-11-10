@@ -1,8 +1,8 @@
 <div ng-controller="MainCtrl as ctrl">
     <div class="row" style="padding: 20px 0">
         <div class="col-lg-8 col-md-7 col-sm-6">
-            <div class="col-sm-9">
-                <input type="text" class="form-control" placeholder="New rooms name" ng-model="ctrl.roomname">
+            <div class="col-sm-9 form-group" ng-class="(ctrl.error ? 'has-error' : '')">
+                <input type="text" class="form-control" placeholder="New rooms name" maxlength=50 ng-model="ctrl.roomname">
             </div>
             <div class="col-sm-3">
                 <a href="" class="btn btn-primary" ng-click="ctrl.add_room()">Add room</a>
@@ -10,7 +10,7 @@
             <div class="col-sm-12">
                 <br>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-4">
+            <div class="col-lg-7 col-md-7 col-sm-7">
                 <div class="list-group table-of-contents">
                     <a class="list-group-item" ng-repeat="room in ctrl.rooms" ui-sref="room({name: room.name})">{{ room.name }}</a>
                 </div>

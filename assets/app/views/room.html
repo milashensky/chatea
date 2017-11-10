@@ -17,17 +17,17 @@
             </div>
         </div>
         <div class="col-sm-9 text-center">
-            <img style="width: 200px" class="text-center" src="/chatea/assets/Spinner.gif" ng-hide="ctrl.data">
+            <img style="width: 200px" class="text-center" src="/assets/Spinner.gif" ng-hide="ctrl.data">
         </div>
     </div>
 
     <div class="row">
-        <div class="col-sm-9">
-            <input type="text" class="form-control" ng-model="ctrl.nickname" id="nickname" style="max-width:100%" placeholder="Enter nickname">
+        <div class="col-sm-9 form-group" ng-class="(ctrl.error ? 'has-error' : '')">
+            <input type="text" class="form-control" maxlength=30 ng-model="ctrl.nickname" id="nickname" style="max-width:100%" placeholder="Enter nickname">
             <br>
             <textarea class="form-control" ng-model="ctrl.message" style="max-width:100%" placeholder="Message"></textarea>
             <br>
-            <button class="btn btn-success pull-right" ng-click="ctrl.add_comment()" ng-disable="!ctrl.data">Add comment</button>
+            <button class="btn btn-success pull-right" maxlength=350 ng-click="ctrl.add_comment()" ng-disable="!ctrl.data">Add comment</button>
         </div>
     </div>
 </div>
